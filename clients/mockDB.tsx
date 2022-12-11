@@ -180,3 +180,93 @@ export const zodiacSigns = [
     icon: '♓️'
   }
 ]
+
+export const sandwiches = [
+  {
+    id: 'aaa',
+    label: 'BLT',
+    image: '',
+  },
+  {
+    id: 'bbb',
+    label: 'club',
+    image: '',
+  },
+  {
+    id: 'ccc',
+    label: 'ice cream waffles',
+    image: '',
+  },
+  {
+    id: 'ddd',
+    label: 'sub',
+    image: '',
+  },
+  {
+    id: 'eee',
+    label: 'hot dog',
+    image: '',
+  },
+  {
+    id: 'fff',
+    label: 'taco',
+    image: '',
+  },
+  {
+    id: 'ggg',
+    label: 'wrap',
+    image: '',
+  },
+  {
+    id: 'hhh',
+    label: 'burrito',
+    image: '',
+  },
+  {
+    id: 'jjj',
+    label: 'Pop-Tart',
+    image: '',
+  },
+]
+
+export const structures = [
+  {
+    id: '!!!',
+    label: 'Structure Purist',
+    sandwiches: ['BLT', 'club', 'ice cream waffles'],
+    description: 'A sandwich must have a classic sandwich shape'
+  },
+  {
+    id: '@@@',
+    label: 'Structure Neutral',
+    sandwiches: ['sub', 'hot dog', 'taco'],
+    description: 'The container must be on either side of the toppings'
+  },
+  {
+    id: '###',
+    label: 'Structure Rebel',
+    sandwiches: ['wrap', 'burrito', 'Pop-Tart'],
+    description: 'Can contain any food enveloped in any way by a containing food'
+  },
+]
+
+export const ingredients = [
+  {
+    id: '$$$',
+    label: 'Ingredient Purist',
+    sandwiches: ['BLT', 'sub', 'wrap'],
+    description: 'Must have classic sandwich toppings'
+  },
+  {
+    id: '%%%',
+    label: 'Ingredient Neutral',
+    sandwiches: ['club', 'hot dog', 'burrito'],
+    description: 'Can contain a broader scope of savoury ingredients'
+  },
+  {
+    id: '^^^',
+    label: 'Ingredient Rebel',
+    sandwiches: ['ice cream waffles', 'taco', 'Pop-Tart'],
+    description: 'Can contain literally any food products sandwiched together'
+  },
+]
