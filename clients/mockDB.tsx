@@ -10,7 +10,7 @@ export const zodiacSigns = [
       month: 'April',
       day: '19'
     },
-    sandwich: ['hot dog', 'burrito'],
+    sandwich: ['hot dog', 'burrito', 'wrap'],
     sign: 'Ram',
     icon: '♈️',
   },
@@ -25,7 +25,7 @@ export const zodiacSigns = [
       month: 'May',
       day: '20'
     },
-    sandwich: ['BLT', 'taco'],
+    sandwich: ['BLT', 'taco', 'sub'],
     sign: 'Bull',
     icon: '♉️',
   },
@@ -40,7 +40,7 @@ export const zodiacSigns = [
       month: 'April',
       day: '19'
     },
-    sandwich: ['Pop-Tart', 'ice cream waffles'],
+    sandwich: ['Pop-Tart', 'ice cream waffles', 'BLT'],
     sign: 'Twins',
     icon: '♊️'
   },
@@ -55,7 +55,7 @@ export const zodiacSigns = [
       month: 'July',
       day: '22'
     },
-    sandwich: ['burrito', 'wrap'],
+    sandwich: ['burrito', 'wrap', 'taco'],
     sign: 'Crab',
     icon: '♋️'
   },
@@ -70,7 +70,7 @@ export const zodiacSigns = [
       month: 'August',
       day: '22'
     },
-    sandwich: ['hot dog', 'BLT'],
+    sandwich: ['hot dog', 'BLT', 'taco'],
     sign: 'Lion',
     icon: '♌️'
   },
@@ -85,7 +85,7 @@ export const zodiacSigns = [
       month: 'September',
       day: '22'
     },
-    sandwich: ['sub', 'club'],
+    sandwich: ['sub', 'club', 'wrap'],
     sign: 'Virgin',
     icon: '♍️'
   },
@@ -100,7 +100,7 @@ export const zodiacSigns = [
       month: 'October',
       day: '22'
     },
-    sandwich: ['taco', 'Pop-Tart'],
+    sandwich: ['taco', 'Pop-Tart', 'BLT'],
     sign: 'Balance',
     icon: '♎️'
   },
@@ -115,7 +115,7 @@ export const zodiacSigns = [
       month: 'November',
       day: '21'
     },
-    sandwich: ['ice cream waffles', 'BLT'],
+    sandwich: ['ice cream waffles', 'BLT', 'club'],
     sign: 'Scorpion',
     icon: '♏️'
   },
@@ -130,7 +130,7 @@ export const zodiacSigns = [
       month: 'December',
       day: '21'
     },
-    sandwich: ['hot dog', 'club'],
+    sandwich: ['hot dog', 'club', 'ice cream waffles'],
     sign: 'Archer',
     icon: '♐️'
   },
@@ -145,7 +145,7 @@ export const zodiacSigns = [
       month: 'January',
       day: '19'
     },
-    sandwich: ['BLT', 'sub'],
+    sandwich: ['BLT', 'sub', 'wrap'],
     sign: 'Goat',
     icon: '♋️'
   },
@@ -160,7 +160,7 @@ export const zodiacSigns = [
       month: 'February',
       day: '18'
     },
-    sandwich: ['taco', 'burrito'],
+    sandwich: ['taco', 'burrito', 'wrap'],
     sign: 'Water Bearer',
     icon: '♒️'
   },
@@ -175,7 +175,7 @@ export const zodiacSigns = [
       month: 'March',
       day: '20'
     },
-    sandwich: ['Pop-Tart', 'taco'],
+    sandwich: ['Pop-Tart', 'taco', 'ice cream waffles'],
     sign: 'Fish',
     icon: '♓️'
   }
