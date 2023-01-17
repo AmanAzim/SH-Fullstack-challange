@@ -1,7 +1,39 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import {NextPageContext} from "next";
+import {ingredients, sandwiches, structures} from "../clients/mockDB";
 
-export default function Home() {
+type Props = {
+  ingredients: typeof ingredients;
+  sandwiches: typeof sandwiches;
+  structures: typeof structures;
+}
+
+export async function getServerSideProps({req}: NextPageContext) {
+  const url = `http://${req?.headers.host}/api/`;
+
+  const responses = await Promise.all([
+    fetch(`${url}/ingredients`),
+    fetch(`${url}/structures`),
+    fetch(`${url}/sandwiches`)
+  ])
+
+  const [
+    ingredients,
+    structures,
+    sandwiches
+  ] = await Promise.all(responses.map(response => response.json()))
+
+  return {
+    props: {
+      ingredients,
+      structures,
+      sandwiches
+    }
+  }
+}
+
+export default function Home({sandwiches, ingredients, structures}: Props) {
   return (
     <div className={styles.container}>
       <Head>
@@ -12,44 +44,53 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to the
+          <br/>
+          Service Hero Coding Challenge!
         </h1>
 
         <p className={styles.description}>
           Get started by editing{' '}
           <code className={styles.code}>pages/index.tsx</code>
+          <br/>
+          <strong>sandwiches, ingredients & structures</strong> are already in the <code>props</code> of the page
+          <br/>
+          Now we need to make the grid of <u>sandwiches</u> using the ingredients as <u>columns</u>
+          {' '}and the structures as <u>rows</u>.
         </p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          <div className={styles.card}>
+            <h2>I should be a sandwich</h2>
+            <p>You can use the <code>styles.grid</code> <br/>classname to arrange the sandwiches here.</p>
+          </div>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+          <div className={styles.card}>
+            <h2>I need a column header</h2>
+            <p>The grid is 3x3 meaning all the sandwiches should fit and be visible.</p>
+          </div>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+          <div className={styles.card}>
+            <h2>BLT</h2>
+            <img alt={'BTL sandwich'} src={'/sandwiches/BLT.png'}/>
+          </div>
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
+          <div className={styles.card}>
+            <h2>I need a row header</h2>
+            <p>This is how rows should look like, once you have 3 of them it will look much nicer!</p>
+          </div>
+
+          <div className={styles.card}>
+            <h2>Endpoints are free!</h2>
+            <p>Take a look at the <u>pages/api/</u> directory, it contains all the endpoints to get the data.</p>
+          </div>
+
+          <div className={styles.card}>
+            <h2>Your mission if you choose to take it:</h2>
+            <p>In <u>pages/api/zodiacSigns.tsx</u> you will need to make the function that will return
+              the zodiac sign based on the <u>3 sandwiches</u> the user chose.
             </p>
-          </a>
+          </div>
         </div>
       </main>
     </div>
