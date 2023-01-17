@@ -185,47 +185,47 @@ export const sandwiches = [
   {
     id: 'aaa',
     label: 'BLT',
-    image: '',
+    image: '/sandwiches/BLT.png',
   },
   {
     id: 'bbb',
     label: 'club',
-    image: '',
+    image: '/sandwiches/club.png',
   },
   {
     id: 'ccc',
     label: 'ice cream waffles',
-    image: '',
+    image: '/sandwiches/ice_cream_waffles.png',
   },
   {
     id: 'ddd',
     label: 'sub',
-    image: '',
+    image: '/sandwiches/sub.png',
   },
   {
     id: 'eee',
     label: 'hot dog',
-    image: '',
+    image: '/sandwiches/hot_dog.png',
   },
   {
     id: 'fff',
     label: 'taco',
-    image: '',
+    image: '/sandwiches/taco.png',
   },
   {
     id: 'ggg',
     label: 'wrap',
-    image: '',
+    image: '/sandwiches/wrap.png',
   },
   {
     id: 'hhh',
     label: 'burrito',
-    image: '',
+    image: '/sandwiches/burrito.png',
   },
   {
     id: 'jjj',
     label: 'Pop-Tart',
-    image: '',
+    image: '/sandwiches/pop_tart.png',
   },
 ]
 
