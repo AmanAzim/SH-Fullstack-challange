@@ -2,6 +2,12 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import {NextPageContext} from "next";
 import {ingredients, sandwiches, structures} from "../clients/mockDB";
+import HeaderRow from './components/HeaderRow';
+import BodyRow from './components/BodyRow';
+import Content from './components/Content';
+import ZodiacSign from './components/ZodiacSign';
+import useGetZodiacSign from './useGetZodiacSign';
+import { getTableRows } from './utils';
 
 type Props = {
   ingredients: typeof ingredients;
@@ -34,6 +40,10 @@ export async function getServerSideProps({req}: NextPageContext) {
 }
 
 export default function Home({sandwiches, ingredients, structures}: Props) {
+  const tableRows = getTableRows({ sandwiches, ingredients, structures });
+
+  const { loadZodiacSign, setSelectedSandwicheLabels, zodiacSign, sandwicheLabels, isLoading, isLoadButtonDisabled, error } = useGetZodiacSign();
+
   return (
     <div className={styles.container}>
       <Head>
@@ -59,40 +69,36 @@ export default function Home({sandwiches, ingredients, structures}: Props) {
           {' '}and the structures as <u>rows</u>.
         </p>
 
+        <div>
+          <h2>Selection rule: You need to select 3 sandwiches to get your zodiac sign</h2>
+        </div>
+
+        <div className={styles.buttonContainer}>
+          <button className={`${styles.button} ${isLoadButtonDisabled ? 'disabled' : ''}`} onClick={loadZodiacSign} disabled={isLoadButtonDisabled}>{isLoading ? 'fetching...' : 'Get zodiac sign'}</button>
+        </div>
+
+        <div className={styles.buttonContainer}>
+          {zodiacSign && (
+            <ZodiacSign label={zodiacSign.label} sign={zodiacSign.sign} icon={zodiacSign.icon} />
+          )}
+        </div>
+
+        <div className={styles.error}>
+          {error? <h2>Opps.. some error occured or Unable to get result. Try different combination</ h2> : null}
+        </div>
+
         <div className={styles.grid}>
-          <div className={styles.card}>
-            <h2>I should be a sandwich</h2>
-            <p>You can use the <code>styles.grid</code> <br/>classname to arrange the sandwiches here.</p>
-          </div>
-
-          <div className={styles.card}>
-            <h2>I need a column header</h2>
-            <p>The grid is 3x3 meaning all the sandwiches should fit and be visible.</p>
-          </div>
-
-          <div className={styles.card}>
-            <h2>BLT</h2>
-            <img alt={'BTL sandwich'} src={'/sandwiches/BLT.png'}/>
-          </div>
-
-          <div className={styles.card}>
-            <h2>I need a row header</h2>
-            <p>This is how rows should look like, once you have 3 of them it will look much nicer!</p>
-          </div>
-
-          <div className={styles.card}>
-            <h2>Endpoints are free!</h2>
-            <p>Take a look at the <u>pages/api/</u> directory, it contains all the endpoints to get the data.</p>
-          </div>
-
-          <div className={styles.card}>
-            <h2>Your mission if you choose to take it:</h2>
-            <p>In <u>pages/api/zodiacSigns.tsx</u> you will need to make the function that will return
-              the zodiac sign based on the <u>3 sandwiches</u> the user chose.
-            </p>
-          </div>
+          <HeaderRow ingredients={ingredients} />
+          {tableRows.map(({ id, label, groupedSandwiches }) => (
+            <BodyRow key={id} label={label}>
+              {groupedSandwiches.map(({ id, label, image }) => (
+                <Content key={id} label={label} image={image} selectedLabels={sandwicheLabels} onClick={() => setSelectedSandwicheLabels(label)}/>
+              ))}
+            </BodyRow>
+          ))}
         </div>
       </main>
     </div>
   )
 }
+

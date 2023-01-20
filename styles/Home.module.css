@@ -62,6 +62,7 @@
   justify-content: center;
   flex-wrap: wrap;
   max-width: 1000px;
+  border: 1px solid black;
 }
 
 .card {
@@ -73,14 +74,27 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+  cursor: pointer;
 }
 
+.selectedCard,
 .card:hover,
 .card:focus,
 .card:active {
   color: #0070f3;
   border-color: #0070f3;
+  border-width: 2px;
+}
+
+.zodiacSign {
+  margin: 1rem;
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  background-color: lightskyblue;
 }
 
 .card h2 {
@@ -88,7 +102,8 @@
   font-size: 1.5rem;
 }
 
-.card p {
+.card p, 
+.zodiacSign p {
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;
@@ -118,3 +133,70 @@
     filter: invert(1);
   }
 }
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  padding: 4px 10px;
+  width: 100%;
+  border-top: 2px solid black;
+}
+
+.firstRow {
+  width: 50rem;
+  display: flex;
+  align-items: center;
+}
+
+.tableHeaderRow {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-left: 2px solid black;
+}
+
+.tableContentRow {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  border-left: 2px solid black;
+}
+
+.buttonContainer {
+  margin: 1rem 2rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  background-color: lightgray;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: black;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus,
+.button:active {
+  color: #0070f3;
+  border-color: #0070f3;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 50%;
+  border-color: black;
+  color: black;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  color: red;
+}
+
